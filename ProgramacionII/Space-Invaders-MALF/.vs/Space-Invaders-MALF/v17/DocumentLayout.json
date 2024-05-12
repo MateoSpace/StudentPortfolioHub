@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "H:\\MySpaceGit\\StudentPortfolioHub\\ProgramacionII\\Space-Invaders-MALF\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0343668F-361B-4CA1-86F0-39330B22C85D}|Space-Invaders-MALF\\Space-Invaders-MALF.vcxproj|H:\\MySpaceGit\\StudentPortfolioHub\\ProgramacionII\\Space-Invaders-MALF\\Space-Invaders-MALF\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0343668F-361B-4CA1-86F0-39330B22C85D}|Space-Invaders-MALF\\Space-Invaders-MALF.vcxproj|solutionrelative:Space-Invaders-MALF\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "H:\\MySpaceGit\\StudentPortfolioHub\\ProgramacionII\\Space-Invaders-MALF\\Space-Invaders-MALF\\main.cpp",
+              "RelativeDocumentMoniker": "Space-Invaders-MALF\\main.cpp",
+              "ToolTip": "H:\\MySpaceGit\\StudentPortfolioHub\\ProgramacionII\\Space-Invaders-MALF\\Space-Invaders-MALF\\main.cpp",
+              "RelativeToolTip": "Space-Invaders-MALF\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-12T04:58:50.694Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
