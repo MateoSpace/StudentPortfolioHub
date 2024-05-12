@@ -4,7 +4,7 @@ Welcome to StudentPortfolioHub! This repository serves as a showcase of my journ
 
 ## About Me
 
-I'm [Your Name], a passionate mechatronics engineering student with a keen interest in developing innovative solutions for complex engineering challenges. Feel free to explore my portfolio and reach out if you have any questions or collaboration opportunities!
+I'm Mateo Loayza, a passionate mechatronics engineering student with a keen interest in developing innovative solutions for complex engineering challenges. Feel free to explore my portfolio and reach out if you have any questions or collaboration opportunities!
 
 ## License
 
