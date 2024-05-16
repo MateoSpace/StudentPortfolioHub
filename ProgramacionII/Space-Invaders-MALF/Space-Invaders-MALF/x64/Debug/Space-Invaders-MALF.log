@@ -1,2 +1,2 @@
-﻿  main.cpp
-  Space-Invaders-MALF.vcxproj -> H:\MySpaceGit\StudentPortfolioHub\ProgramacionII\Space-Invaders-MALF\x64\Debug\Space-Invaders-MALF.exe
+﻿  ListaDeTextos.cpp
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-MALF\Space-Invaders-MALF\ListaDeTextos.cpp(99,17): error C4996: 'sf::Text::setColor': se declaró desusado
