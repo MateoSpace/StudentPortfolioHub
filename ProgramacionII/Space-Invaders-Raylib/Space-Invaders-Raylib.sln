@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Space-Invaders-Raylib", "Space-Invaders-Raylib.vcxproj", "{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}.Debug|x64.ActiveCfg = Debug|x64
+		{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}.Debug|x64.Build.0 = Debug|x64
+		{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}.Debug|x86.ActiveCfg = Debug|Win32
+		{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}.Debug|x86.Build.0 = Debug|Win32
+		{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}.Release|x64.ActiveCfg = Release|x64
+		{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}.Release|x64.Build.0 = Release|x64
+		{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}.Release|x86.ActiveCfg = Release|Win32
+		{DD24D04D-DC25-404C-A9BE-5CFCBF986C5F}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62759851-B16B-4D97-A191-F72071E6098D}
+	EndGlobalSection
+EndGlobal

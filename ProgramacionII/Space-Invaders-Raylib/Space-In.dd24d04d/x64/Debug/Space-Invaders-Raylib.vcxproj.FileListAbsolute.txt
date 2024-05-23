@@ -1,0 +1,2 @@
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\x64\Debug\raylib.dll
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Space-In.dd24d04d\x64\Debug\Space-In.1B4A8886.Up2Date
