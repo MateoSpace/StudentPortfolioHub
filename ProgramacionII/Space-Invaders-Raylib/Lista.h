@@ -13,10 +13,12 @@ public:
 	~Lista();
 
 	bool vacio();
+	int tamano();
 	void registrar(T* dato);
 	string toJson(string(*toJson)(T*));
 	T* buscar(T* dato);
 	void ordenar(bool(funcComp)(T*, T*));
+	T& operator[](int indice);
 };
 
 template<class T>
@@ -29,13 +31,13 @@ Lista<T>::Lista()
 template<class T>
 Lista<T>::~Lista()
 {
-	Nodo<T>* current = primerNodo;
+	Nodo<T>* nodo = primerNodo;
 	Nodo<T>* siguiente;
 
-	while (current != nullptr) {
-		siguiente = current->siguiente;
-		delete current;
-		current = siguiente;
+	while (nodo != nullptr) {
+		siguiente = nodo->getSig();
+		delete nodo;
+		nodo = siguiente;
 	}
 
 	primerNodo = nullptr;
@@ -46,6 +48,17 @@ template<class T>
 bool Lista<T>::vacio()
 {
 	return primerNodo == NULL;
+}
+
+template<class T>
+int Lista<T>::tamano(){
+	int contador = 0;
+	Nodo<T>* nodo = primerNodo;
+	while (nodo != nullptr) {
+		contador++;
+		nodo = nodo->getSig();
+	}
+	return contador;
 }
 
 template<class T>
@@ -107,11 +120,11 @@ void Lista<T>::ordenar(bool(funcComp)(T*, T*))
 	{
 		return;
 	}
-	Nodo<T>* current = primerNodo;
-	while (current)
+	Nodo<T>* nodo = primerNodo;
+	while (nodo)
 	{
-		Nodo<T>* minNode = current;
-		Nodo<T>* siguiente = current->getSig();
+		Nodo<T>* minNode = nodo;
+		Nodo<T>* siguiente = nodo->getSig();
 
 		while (siguiente) {
 			if (funcComp(siguiente->getDato(), minNode->getDato())) {
@@ -119,11 +132,29 @@ void Lista<T>::ordenar(bool(funcComp)(T*, T*))
 			}
 			siguiente = siguiente->getSig();
 		}
-		if (current != minNode) {
-			T* temp = current->getDato();
-			current->setDato(minNode->getDato());
+		if (nodo != minNode) {
+			T* temp = nodo->getDato();
+			nodo->setDato(minNode->getDato());
 			minNode->setDato(temp);
 		}
-		current = current->getSig();
+		nodo = nodo->getSig();
 	}
 }
+
+template<class T>
+T& Lista<T>::operator[] (int indice)
+{
+	int contador = 0;
+	Nodo<T>* nodo = this->primerNodo;
+
+	while (nodo != nullptr)
+	{
+		if (contador == indice)
+		{
+			return * (nodo->getDato());
+		}
+		nodo = nodo->getSig();
+		contador++;
+	}
+}
+

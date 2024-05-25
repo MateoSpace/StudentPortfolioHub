@@ -11,8 +11,8 @@ int main() {
     const int screenHeight = 700;
     int ball_x = 100;
     int ball_y = 100;
-    int ball_speed_x = 5;
-    int ball_speed_y = 5;
+    int ball_speed_x = 1;
+    int ball_speed_y = 1;
     int ball_radius = 15;
 
     cout << "Hello World" << endl;
@@ -37,7 +37,7 @@ int main() {
         }
 
         DrawCircle(ball_x, ball_y, ball_radius, WHITE);
-        DrawText("EL MENU DEL JUEGO", screenHeight/2.5, screenWidth / 2.5, 20, LIGHTGRAY);
+        DrawText("EL MENU DEL JUEGO", int(screenHeight / 2.5), int(screenWidth / 2.5), 20, LIGHTGRAY);
         EndDrawing();
     }
 

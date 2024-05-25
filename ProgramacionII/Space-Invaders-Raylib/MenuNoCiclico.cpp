@@ -1,29 +1,54 @@
-/*#include "MenuNoCiclico.h"
+#include "MenuNoCiclico.h"
 
-MenuNoCiclico::MenuNoCiclico()
+
+
+MenuNoCiclico::MenuNoCiclico(Lista<string> listaOpciones, Lista<int(*)(int)>& listaFunciones, Font Fuente, double interlineado, int tamñanoDeFuente, Vector2 posicion, Color colorGeneral)
+	: Menu(listaOpciones, listaFunciones, Fuente, interlineado, tamñanoDeFuente, seleccion, posicion, colorGeneral)
 {
 
+}
+
+MenuNoCiclico::MenuNoCiclico(Lista<string> listaOpciones, Lista<int(*)(int)>& listaFunciones, Vector2 posicion)
+	: Menu(listaOpciones, listaFunciones, Fuente, interlineado, tamñanoDeFuente, seleccion, posicion, colorGeneral)
+{
 }
 
 MenuNoCiclico::~MenuNoCiclico()
 {
 }
 
-Color MenuNoCiclico::GetColor()
-{
-	return Color();
-}
-
-void MenuNoCiclico::SetColor()
-{
-}
-
-void MenuNoCiclico::DrawMenu()
-{
-}
-
 void MenuNoCiclico::Seleccion()
 {
+	/*
+	int seleccion = 0;
+	char tecla = 0;
+	do
+	{
+		system("cls");
+		cout << "---------- Menu ----------" << endl;
+		DrawMenu();
+
+		if (IsKeyPressed(KEY_R))
+		{
+			if (seleccion > 0)
+			{
+				seleccion--;
+			}
+		} 
+		if (IsKeyPressed(KEY_R))
+		{
+			if (seleccion < listaOpciones.tamano() - 1)
+			{
+				seleccion++;
+			}
+		}
+		if (IsKeyPressed(KEY_R))
+		{
+			int retorno = listaFunciones[seleccion](seleccion);
+			break;
+		}
+	} while (!(tecla == 13));
+	*/
 }
 
 /*

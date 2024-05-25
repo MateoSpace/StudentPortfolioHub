@@ -1,7 +1,84 @@
-﻿  Space-Invaders-Raylib.cpp
+﻿  Dibujo.cpp
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(12,5): error C3927: "->": no se admite el tipo de valor devuelto final después de un declarador que no es de función
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(12,9): error C3484: error de sintaxis: se esperaba '->' antes del tipo de valor devuelto
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(12,10): error C3613: falta el tipo de devolución después de '->' (se presupone 'int')
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(12,10): error C3646: 'x': especificador de invalidación desconocido
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(12,12): error C2059: error de sintaxis: '='
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(12,24): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(13,5): error C3927: "->": no se admite el tipo de valor devuelto final después de un declarador que no es de función
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(13,9): error C3484: error de sintaxis: se esperaba '->' antes del tipo de valor devuelto
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(13,10): error C3613: falta el tipo de devolución después de '->' (se presupone 'int')
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(13,10): error C3646: 'y': especificador de invalidación desconocido
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(13,12): error C2059: error de sintaxis: '='
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(13,24): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(14,5): error C3927: "->": no se admite el tipo de valor devuelto final después de un declarador que no es de función
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(14,9): error C3484: error de sintaxis: se esperaba '->' antes del tipo de valor devuelto
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(14,10): error C3613: falta el tipo de devolución después de '->' (se presupone 'int')
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(14,10): error C3646: 'width': especificador de invalidación desconocido
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(14,16): error C2059: error de sintaxis: '='
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(14,19): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(15,5): error C3927: "->": no se admite el tipo de valor devuelto final después de un declarador que no es de función
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(15,9): error C3484: error de sintaxis: se esperaba '->' antes del tipo de valor devuelto
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(15,10): error C3613: falta el tipo de devolución después de '->' (se presupone 'int')
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(15,10): error C3646: 'height': especificador de invalidación desconocido
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(15,17): error C2059: error de sintaxis: '='
+  (compilando archivo de origen "Dibujo.cpp")
+  
+  MenuCilico.cpp
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(15,20): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(16,5): error C2059: error de sintaxis: 'return'
+  (compilando archivo de origen "Dibujo.cpp")
+  
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Dibujo.h(16,16): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Dibujo.cpp")
+  
+  MenuNoCiclico.cpp
+  Space-Invaders-Raylib.cpp
 C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Space-Invaders-Raylib.cpp(39,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Space-Invaders-Raylib.cpp(40,69): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Space-Invaders-Raylib.cpp(40,51): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-  Space-Invaders-Raylib.vcxproj -> C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\x64\Debug\Space-Invaders-Raylib.exe
-  "pwsh.exe" no se reconoce como un comando interno o externo,
-  programa o archivo por lotes ejecutable.
+  Generando código...
