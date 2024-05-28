@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alien.cpp" />
     <ClCompile Include="Dibujo.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -136,12 +137,14 @@
     <ClCompile Include="Space-Invaders-Raylib.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alien.h" />
     <ClInclude Include="Dibujo.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuCilico.h" />
     <ClInclude Include="MenuNoCiclico.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="VectorGenerico.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

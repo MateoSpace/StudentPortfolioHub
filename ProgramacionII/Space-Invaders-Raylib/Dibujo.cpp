@@ -1,13 +1,11 @@
 #include "Dibujo.h"
+#include <iostream> // Necesario para cout
 
-Dibujo::Dibujo(Vector2 position,  grid, Color colorGeneral)
+Dibujo::Dibujo(Vector2 posicion, VectorGenerico<VectorGenerico<int>> grid, Color colorGeneral)
+    : posicion(posicion), grid(grid), colorGeneral(colorGeneral)
 {
-
     rectangulo.width = 3;
     rectangulo.height = 3;
-
-    this-> grid = grid;
-    this->colorGeneral = colorGeneral;
 }
 
 Dibujo::~Dibujo()
@@ -24,19 +22,27 @@ Vector2& Dibujo::GetPosicion()
     return posicion;
 }
 
+void Dibujo::SetRectangulox(int width)
+{
+    rectangulo.width = float(width);
+}
+
+void Dibujo::SetRectanguloy(int height)
+{
+    rectangulo.height = float(height);
+}
+
 void Dibujo::Draw()
 {
-    this->position = position;
-
-    for (unsigned int row = 0; row < grid.size(); ++row) {
-        for (unsigned int column = 0; column < grid[0].size(); ++column) {
-            if (grid[row][column] == 1) {
-                rectangulo.x = position.x + column * 3;
-                rectangulo.y = position.y + row * 3;
-                Block block = Block({ pos_x, pos_y });
-                blocks.push_back(block);
+    DrawText("funca", int(600 / 2.5), int(600 / 2.5), 10, LIGHTGRAY);
+    Vector2 auxPosicion = posicion;
+    for (int filas = 0; filas < grid.getCantidadActual(); ++filas) {
+        for (int columnas = 0; columnas < grid[filas].getCantidadActual(); ++columnas) {
+            //std::cout << filas << "+" << columnas << "---" << grid[filas][columnas] << std::endl;
+            if (grid[filas][columnas] == 1) {
+                rectangulo.x = auxPosicion.x + columnas * rectangulo.width;
+                rectangulo.y = auxPosicion.y + filas * rectangulo.height;
                 DrawRectangleRec(rectangulo, colorGeneral);
-
             }
         }
     }
