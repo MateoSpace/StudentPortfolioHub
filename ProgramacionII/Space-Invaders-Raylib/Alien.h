@@ -10,6 +10,7 @@ private:
     int tipoAlien;
 public:
     Alien(Vector2 posicion, int tipoAlien, Color colorGeneral);
+    Alien();
     ~Alien();
 
     int& getVida();

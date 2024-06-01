@@ -19,6 +19,7 @@ int main() {
     int ball_speed_y = 5;
     int ball_radius = 15;
 
+    /*
     cout << "Hello World" << endl;
     VectorGenerico<VectorGenerico<int>> MatrizPrueba(8);
 
@@ -45,9 +46,23 @@ int main() {
     }
 
     Dibujo dibujoPrueba({ 60,40 }, MatrizPrueba, WHITE);
+    */
 
-    Alien alien1({ 350,350 }, 2, YELLOW);
+    Alien alien1({ 350,350 }, 3, YELLOW);
 
+    VectorGenerico<Alien> listaAliens(6);
+
+    VectorGenerico<VectorGenerico<Alien>> MatrizAliens(7);
+
+    for (int i = 0; i < 8; i++) {
+
+        for (int j = 0; j < 5; j++) {
+            Vector2 posicion = { 20 + (i * 10),10 + (j * 10) };
+
+            listaAliens.registrar(Alien(posicion, 3, YELLOW));
+        }
+        MatrizAliens.registrar(listaAliens);
+    }
 
     InitWindow(screenWidth, screenHeight, "SPACE INVADERS (RAYLIB)");
     SetTargetFPS(60);
@@ -56,8 +71,9 @@ int main() {
         BeginDrawing();
         ClearBackground({ 16, 16, 16});
 
-        dibujoPrueba.Draw();
+        //dibujoPrueba.Draw();
         alien1.Draw();
+        
 
         ball_x += ball_speed_x;
         ball_y += ball_speed_y;

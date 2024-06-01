@@ -39,6 +39,9 @@
     <ClCompile Include="Alien.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="MatrizGenerica.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MenuNoCiclico.h">
@@ -63,6 +66,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Alien.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrizGenerica.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

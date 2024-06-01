@@ -34,7 +34,6 @@ void Dibujo::SetRectanguloy(int height)
 
 void Dibujo::Draw()
 {
-    DrawText("funca", int(600 / 2.5), int(600 / 2.5), 10, LIGHTGRAY);
     Vector2 auxPosicion = posicion;
     for (int filas = 0; filas < grid.getCantidadActual(); ++filas) {
         for (int columnas = 0; columnas < grid[filas].getCantidadActual(); ++columnas) {

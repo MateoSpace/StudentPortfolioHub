@@ -16,9 +16,9 @@ public:
 	void registrar(T elemento);
 	T operator[](int posicion);
 	int getCantidadActual();
-	
+
 	void ordenar(bool (*comparador)(T a, T b));
-	T buscar(T elementoBuscado, bool (*comparador)(T elemento, T buscado)); // ==
+	T buscar(T elementoBuscado, bool (*comparador)(T elemento, T buscado));
 private:
 	T* vector;
 	int cantidadActual;
@@ -30,7 +30,7 @@ VectorGenerico<T>::VectorGenerico(int cantidadMaxima)
 {
 	this->cantidadActual = 0;
 	this->cantidadMaxima = cantidadMaxima;
-	vector = new T[cantidadMaxima];///////////// error
+	vector = new T[cantidadMaxima];
 }
 
 template<typename T>
@@ -47,10 +47,7 @@ void VectorGenerico<T>::registrar(T elemento)
 		vector[cantidadActual] = elemento;
 		cantidadActual++;
 	}
-	else
-	{
-		throw exception("Se llego al limite de elementos");
-	}
+
 }
 
 template<typename T>

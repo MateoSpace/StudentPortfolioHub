@@ -52,20 +52,18 @@ Alien::Alien(Vector2 posicion, int tipoAlien, Color colorGeneral)
     }
     case 3:
     {
-        int Patron[9][9] = {
-            {0,0,0,0,1,0,0,0,0},
-            {0,0,0,1,1,1,0,0,0},
-            {0,0,1,1,1,1,1,0,0},
-            {0,1,1,1,1,1,1,1,0},
-            {1,1,0,0,1,0,0,1,1},
-            {1,1,1,1,1,1,1,1,1},
-            {0,0,1,1,1,1,1,0,0},
-            {0,1,0,0,1,0,0,1,0},
-            {1,0,0,1,0,1,0,0,1}
-        };
-        for (int i = 0; i < 9; i++) {
-            VectorGenerico<int> listaInterna(9);
-            for (int j = 0; j < 9; j++) {
+        int Patron[8][10] = {
+            {0,0,0,0,1,0,0,0,0,0},
+            {0,0,0,1,1,1,0,0,0,0},
+            {0,0,1,1,1,1,1,0,0,0},
+            {0,1,0,0,1,0,0,1,0,0},
+            {1,1,1,1,1,1,1,1,1,0},
+            {0,0,1,1,1,1,1,0,0,0},
+            {0,1,0,0,1,0,0,1,0,0},
+            {1,0,0,1,0,1,0,0,1,0} };
+        for (int i = 0; i < 8; i++) {
+            VectorGenerico<int> listaInterna(10);
+            for (int j = 0; j < 10; j++) {
                 listaInterna.registrar(Patron[i][j]);
             }
             MatrizPrueba.registrar(listaInterna);
@@ -98,6 +96,10 @@ Alien::Alien(Vector2 posicion, int tipoAlien, Color colorGeneral)
     }
 
     this->grid = MatrizPrueba;
+}
+
+Alien::Alien() : Dibujo({ 0,0 }, VectorGenerico<VectorGenerico<int>>(8), WHITE), tipoAlien(1), estaVivo(true), vida(2)
+{
 }
 
 Alien::~Alien()
