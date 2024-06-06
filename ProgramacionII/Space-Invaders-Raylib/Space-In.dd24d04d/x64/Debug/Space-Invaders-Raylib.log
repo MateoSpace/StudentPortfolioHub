@@ -1,4 +1,6 @@
-﻿  MatrizGenerica.cpp
+﻿  Space-Invaders-Raylib.cpp
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Space-Invaders-Raylib.cpp(29,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\Space-Invaders-Raylib.cpp(29,46): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   Space-Invaders-Raylib.vcxproj -> C:\Users\mloay\source\repos\StudentPortfolioHub\ProgramacionII\Space-Invaders-Raylib\x64\Debug\Space-Invaders-Raylib.exe
   "pwsh.exe" no se reconoce como un comando interno o externo,
   programa o archivo por lotes ejecutable.

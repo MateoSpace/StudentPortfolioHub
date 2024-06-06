@@ -1,21 +1,18 @@
 #pragma once
 #include "Dibujo.h"
-#include "VectorGenerico.h"
+#include "MatrizGenerica.h"
 
 class Alien : public Dibujo
 {
 private:
     bool estaVivo;
-    int vida;
     int tipoAlien;
 public:
     Alien(Vector2 posicion, int tipoAlien, Color colorGeneral);
     Alien();
-    ~Alien();
+    ~Alien() = default;
 
-    int& getVida();
-    int& getTipo();
-    bool& getEstaVivo();
+    int getTipo() const;
+    bool isVivo() const;
+    void setVivo(bool estado);
 };
-
-

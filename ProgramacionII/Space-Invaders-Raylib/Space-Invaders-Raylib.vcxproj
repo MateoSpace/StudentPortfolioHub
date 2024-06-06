@@ -129,23 +129,17 @@
   <ItemGroup>
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="Dibujo.cpp" />
-    <ClCompile Include="Lista.cpp" />
+    <ClCompile Include="MatrizEnemigos.cpp" />
     <ClCompile Include="MatrizGenerica.cpp" />
-    <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="MenuCilico.cpp" />
-    <ClCompile Include="MenuNoCiclico.cpp" />
-    <ClCompile Include="Nodo.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Space-Invaders-Raylib.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alien.h" />
     <ClInclude Include="Dibujo.h" />
-    <ClInclude Include="Lista.h" />
+    <ClInclude Include="MatrizEnemigos.h" />
     <ClInclude Include="MatrizGenerica.h" />
-    <ClInclude Include="Menu.h" />
-    <ClInclude Include="MenuCilico.h" />
-    <ClInclude Include="MenuNoCiclico.h" />
-    <ClInclude Include="Nodo.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="VectorGenerico.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

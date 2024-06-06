@@ -2,121 +2,88 @@
 #include <iostream>
 
 Alien::Alien(Vector2 posicion, int tipoAlien, Color colorGeneral)
-    : Dibujo(posicion, VectorGenerico<VectorGenerico<int>>(8), colorGeneral), tipoAlien(tipoAlien), estaVivo(true), vida(100)
+    : Dibujo(posicion, 8, 10, colorGeneral), tipoAlien(tipoAlien), estaVivo(true)
 {
-    VectorGenerico<VectorGenerico<int>> MatrizPrueba(8);
+    MatrizGenerica<int> MatrizPrueba(8, 10);
 
-    switch (tipoAlien)
-    {
-    case 1:
-    {
-        int Patron[8][10] = {
-            {0,0,0,1,1,1,1,0,0,0},
-            {0,1,1,1,1,1,1,1,1,0},
-            {1,1,1,1,1,1,1,1,1,1},
-            {1,0,0,1,1,1,1,0,0,1},
-            {1,1,1,1,1,1,1,1,1,1},
-            {0,0,1,0,0,0,0,1,0,0},
-            {0,1,0,1,1,1,1,0,1,0},
-            {1,0,0,0,0,0,0,0,0,1}
-        };
-        for (int i = 0; i < 8; i++) {
-            VectorGenerico<int> listaInterna(10);
-            for (int j = 0; j < 10; j++) {
-                listaInterna.registrar(Patron[i][j]);
-            }
-            MatrizPrueba.registrar(listaInterna);
-        }
-        break;
+    const int Patron1[8][10] = {
+        {0,0,0,1,1,1,1,0,0,0},
+        {0,1,1,1,1,1,1,1,1,0},
+        {1,1,1,1,1,1,1,1,1,1},
+        {1,0,0,1,1,1,1,0,0,1},
+        {1,1,1,1,1,1,1,1,1,1},
+        {0,0,1,0,0,0,0,1,0,0},
+        {0,1,0,1,1,1,1,0,1,0},
+        {1,0,0,0,0,0,0,0,0,1}
+    };
+
+    const int Patron2[8][10] = {
+        {0,0,1,0,0,0,0,1,0,0},
+        {0,0,0,1,1,1,1,0,0,0},
+        {0,0,1,1,1,1,1,1,0,0},
+        {0,1,1,0,1,1,0,1,1,0},
+        {1,1,1,1,1,1,1,1,1,1},
+        {1,0,1,1,1,1,1,1,0,1},
+        {0,0,0,1,0,0,1,0,0,0},
+        {0,0,1,0,0,0,0,1,0,0}
+    };
+
+    const int Patron3[8][10] = {
+        {0,0,0,0,1,0,0,0,0,0},
+        {0,0,0,1,1,1,0,0,0,0},
+        {0,0,1,1,1,1,1,0,0,0},
+        {0,1,0,0,1,0,0,1,0,0},
+        {1,1,1,1,1,1,1,1,1,0},
+        {0,0,1,1,1,1,1,0,0,0},
+        {0,1,0,0,1,0,0,1,0,0},
+        {1,0,0,1,0,1,0,0,1,0}
+    };
+
+    const int Patron4[8][10] = {
+        {0,0,1,0,0,0,0,1,0,0},
+        {0,0,0,1,1,1,1,0,0,0},
+        {0,0,1,1,1,1,1,1,0,0},
+        {0,1,1,0,1,1,0,1,1,0},
+        {1,1,1,1,1,1,1,1,1,1},
+        {1,0,1,1,1,1,1,1,0,1},
+        {0,0,0,1,0,0,1,0,0,0},
+        {0,0,1,0,0,0,0,1,0,0}
+    };
+
+    const int(*patron)[10] = nullptr;
+
+    switch (tipoAlien) {
+    case 1: patron = Patron1; break;
+    case 2: patron = Patron2; break;
+    case 3: patron = Patron3; break;
+    case 4: patron = Patron4; break;
+    default: throw std::invalid_argument("Tipo de alien no válido");
     }
-    case 2:
-    {
-        int Patron[8][10] = {
-            {0,0,1,0,0,0,0,1,0,0},
-            {0,0,0,1,1,1,1,0,0,0},
-            {0,0,1,1,1,1,1,1,0,0},
-            {0,1,1,0,1,1,0,1,1,0},
-            {1,1,1,1,1,1,1,1,1,1},
-            {1,0,1,1,1,1,1,1,0,1},
-            {0,0,0,1,0,0,1,0,0,0},
-            {0,0,1,0,0,0,0,1,0,0}
-        };
-        for (int i = 0; i < 8; i++) {
-            VectorGenerico<int> listaInterna(10);
-            for (int j = 0; j < 10; j++) {
-                listaInterna.registrar(Patron[i][j]);
-            }
-            MatrizPrueba.registrar(listaInterna);
+
+    for (int i = 0; i < 8; ++i) {
+        MatrizPrueba[i].registrar(10);
+        for (int j = 0; j < 10; ++j) {
+            MatrizPrueba[i][j] = patron[i][j];
         }
-        break;
-    }
-    case 3:
-    {
-        int Patron[8][10] = {
-            {0,0,0,0,1,0,0,0,0,0},
-            {0,0,0,1,1,1,0,0,0,0},
-            {0,0,1,1,1,1,1,0,0,0},
-            {0,1,0,0,1,0,0,1,0,0},
-            {1,1,1,1,1,1,1,1,1,0},
-            {0,0,1,1,1,1,1,0,0,0},
-            {0,1,0,0,1,0,0,1,0,0},
-            {1,0,0,1,0,1,0,0,1,0} };
-        for (int i = 0; i < 8; i++) {
-            VectorGenerico<int> listaInterna(10);
-            for (int j = 0; j < 10; j++) {
-                listaInterna.registrar(Patron[i][j]);
-            }
-            MatrizPrueba.registrar(listaInterna);
-        }
-        break;
-    }
-    case 4:
-    {
-        int Patron[8][10] = {
-            {0,0,1,0,0,0,0,1,0,0},
-            {0,0,0,1,1,1,1,0,0,0},
-            {0,0,1,1,1,1,1,1,0,0},
-            {0,1,1,0,1,1,0,1,1,0},
-            {1,1,1,1,1,1,1,1,1,1},
-            {1,0,1,1,1,1,1,1,0,1},
-            {0,0,0,1,0,0,1,0,0,0},
-            {0,0,1,0,0,0,0,1,0,0}
-        };
-        for (int i = 0; i < 8; i++) {
-            VectorGenerico<int> listaInterna(10);
-            for (int j = 0; j < 10; j++) {
-                listaInterna.registrar(Patron[i][j]);
-            }
-            MatrizPrueba.registrar(listaInterna);
-        }
-        break;
-    }
-    default:
-        break;
     }
 
     this->grid = MatrizPrueba;
 }
 
-Alien::Alien() : Dibujo({ 0,0 }, VectorGenerico<VectorGenerico<int>>(8), WHITE), tipoAlien(1), estaVivo(true), vida(2)
+Alien::Alien()
+    : Dibujo({ 0,0 }, 8, 10, WHITE), tipoAlien(1), estaVivo(true)
 {
 }
 
-Alien::~Alien()
-{
-}
-
-int& Alien::getVida()
-{
-    return vida;
-}
-
-int& Alien::getTipo()
-{
+int Alien::getTipo() const {
     return tipoAlien;
 }
 
-bool& Alien::getEstaVivo()
-{
+bool Alien::isVivo() const {
     return estaVivo;
 }
+
+void Alien::setVivo(bool estado) {
+    estaVivo = estado;
+}
+

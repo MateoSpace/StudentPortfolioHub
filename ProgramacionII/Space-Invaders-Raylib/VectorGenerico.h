@@ -1,100 +1,114 @@
 #pragma once
 
 #include <exception>
+#include <stdexcept>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-// T es un tipo generico que puede una variable primitiva 
-// o compleja (clases, punteros)
 template<typename T>
-class VectorGenerico
-{
+class VectorGenerico {
 public:
-	VectorGenerico();
-	VectorGenerico(int cantidadMaxima);
-	void registrar(T elemento);
-	T operator[](int posicion);
-	int getCantidadActual();
+    VectorGenerico();
+    explicit VectorGenerico(int cantidadMaxima);
+    ~VectorGenerico();
 
-	void ordenar(bool (*comparador)(T a, T b));
-	T buscar(T elementoBuscado, bool (*comparador)(T elemento, T buscado));
+    void registrar(T elemento);
+    T& operator[](int posicion);  // Devuelve una referencia
+    //T& operator[](int posicion) const;  // Devuelve una referencia constante
+    int getCantidadActual() const;
+
+    void eliminar(int posicion);
+
+    void ordenar(bool (*comparador)(T a, T b));
+    T buscar(T elementoBuscado, bool (*comparador)(T elemento, T buscado)) const;
+
 private:
-	T* vector;
-	int cantidadActual;
-	int cantidadMaxima;
+    T* vector;
+    int cantidadActual;
+    int cantidadMaxima;
+
+    void validarPosicion(int posicion) const;
 };
 
 template<typename T>
-VectorGenerico<T>::VectorGenerico(int cantidadMaxima)
-{
-	this->cantidadActual = 0;
-	this->cantidadMaxima = cantidadMaxima;
-	vector = new T[cantidadMaxima];
-}
-
-template<typename T>
 VectorGenerico<T>::VectorGenerico()
-	: vector(nullptr), cantidadActual(0), cantidadMaxima(0)
-{
+    : vector(nullptr), cantidadActual(0), cantidadMaxima(0) {
 }
 
 template<typename T>
-void VectorGenerico<T>::registrar(T elemento)
-{
-	if (cantidadActual < cantidadMaxima)
-	{
-		vector[cantidadActual] = elemento;
-		cantidadActual++;
-	}
-
+VectorGenerico<T>::VectorGenerico(int cantidadMaxima)
+    : cantidadActual(0), cantidadMaxima(cantidadMaxima) {
+    if (cantidadMaxima <= 0) {
+        throw std::invalid_argument("La cantidad máxima debe ser mayor que cero.");
+    }
+    vector = new T[cantidadMaxima];
 }
 
 template<typename T>
-T VectorGenerico<T>::operator[](int posicion)
-{
-	if (posicion < cantidadMaxima)
-	{
-		return vector[posicion];
-	}
-	throw exception("No existe la posicion");
+VectorGenerico<T>::~VectorGenerico() {
+    //delete[] vector;
 }
 
 template<typename T>
-inline int VectorGenerico<T>::getCantidadActual()
-{
-	return cantidadActual;
+void VectorGenerico<T>::registrar(T elemento) {
+    if (cantidadActual >= cantidadMaxima) {
+        throw std::out_of_range("No se puede registrar más elementos, vector lleno.");
+    }
+    vector[cantidadActual++] = elemento;
 }
 
 template<typename T>
-inline void VectorGenerico<T>::ordenar(bool (*comparador)(T a, T b))
-{
-	for (int i = 0; i < cantidadActual; i++)
-	{
-		for (int j = 0; j < cantidadActual - 1; j++)
-		{
-			// bool comparador(T a, T b);
-			// if (vector[j] > vector[j + 1])
-			if (comparador(vector[j], vector[j + 1]))
-			{
-				swap(vector[j], vector[j + 1]);
-			}
-		}
-	}
+T& VectorGenerico<T>::operator[](int posicion) {  // Devuelve una referencia
+    //validarPosicion(posicion);
+    return vector[posicion];
+}
+/*
+template<typename T>
+T& VectorGenerico<T>::operator[](int posicion) const {  // Devuelve una referencia constante
+    //validarPosicion(posicion);
+    return vector[posicion];
+}*/
+
+template<typename T>
+int VectorGenerico<T>::getCantidadActual() const {
+    return cantidadActual;
 }
 
 template<typename T>
-T VectorGenerico<T>::buscar(T elementoBuscado, bool (*comparador)(T elemento, T buscado))
-{
-	for (int i = 0; i < cantidadActual; i++)
-	{
-		// bool comparador(T elementoDelVector, T buscado);
-		// vector[i] = elementoDelVector
-		// if (vector[i] == buscado)
-		if (comparador(vector[i], elementoBuscado))
-		{
-			return vector[i];
-		}
-	}
-	throw exception("No existe el elemento");
+void VectorGenerico<T>::eliminar(int posicion) {
+    validarPosicion(posicion);
+
+    for (int i = posicion; i < cantidadActual - 1; ++i) {
+        vector[i] = vector[i + 1];
+    }
+    cantidadActual--;
+}
+
+
+template<typename T>
+void VectorGenerico<T>::ordenar(bool (*comparador)(T a, T b)) {
+    for (int i = 0; i < cantidadActual - 1; ++i) {
+        for (int j = 0; j < cantidadActual - 1 - i; ++j) {
+            if (comparador(vector[j + 1], vector[j])) {
+                std::swap(vector[j], vector[j + 1]);
+            }
+        }
+    }
+}
+
+template<typename T>
+T VectorGenerico<T>::buscar(T elementoBuscado, bool (*comparador)(T elemento, T buscado)) const {
+    for (int i = 0; i < cantidadActual; ++i) {
+        if (comparador(vector[i], elementoBuscado)) {
+            return vector[i];
+        }
+    }
+    throw std::runtime_error("No existe el elemento buscado.");
+}
+
+template<typename T>
+void VectorGenerico<T>::validarPosicion(int posicion) const {
+    if (posicion < 0 || posicion >= cantidadActual) {
+        throw std::out_of_range("Posición fuera de rango.");
+    }
 }
