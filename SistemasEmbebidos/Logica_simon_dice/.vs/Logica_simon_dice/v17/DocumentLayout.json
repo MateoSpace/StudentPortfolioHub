@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mloay\\source\\repos\\StudentPortfolioHub\\SistemasEmbebidos\\Logica_simon_dice\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FF47762B-B7BA-47D4-91C3-99895F675E9A}|Logica_simon_dice.vcxproj|C:\\Users\\mloay\\source\\repos\\StudentPortfolioHub\\SistemasEmbebidos\\Logica_simon_dice\\Logica_simon_dice.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FF47762B-B7BA-47D4-91C3-99895F675E9A}|Logica_simon_dice.vcxproj|solutionrelative:Logica_simon_dice.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Logica_simon_dice.cpp",
+              "DocumentMoniker": "C:\\Users\\mloay\\source\\repos\\StudentPortfolioHub\\SistemasEmbebidos\\Logica_simon_dice\\Logica_simon_dice.cpp",
+              "RelativeDocumentMoniker": "Logica_simon_dice.cpp",
+              "ToolTip": "C:\\Users\\mloay\\source\\repos\\StudentPortfolioHub\\SistemasEmbebidos\\Logica_simon_dice\\Logica_simon_dice.cpp",
+              "RelativeToolTip": "Logica_simon_dice.cpp",
+              "ViewState": "AQIAAAAAAACAZmZmZmYkwA8AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-24T02:06:08.992Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

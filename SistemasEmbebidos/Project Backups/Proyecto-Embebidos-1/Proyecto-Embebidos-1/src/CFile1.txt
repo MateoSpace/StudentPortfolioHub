@@ -1,0 +1,205 @@
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <stdlib.h>
+
+#define F_CPU 8000000UL
+#include <util/delay.h>
+
+#define MAX_LEVEL 99
+#define RESPONSE_TIMEOUT 3000  // Tiempo máximo para respuesta (en ms)
+
+char bcd[] = {63, 6, 91, 79, 102, 109, 125, 7, 127, 103};  // Tabla para display de 7 segmentos
+
+volatile uint8_t simon_sequence[100];
+volatile uint8_t button_state = 0;
+volatile uint8_t level = 1;
+volatile uint8_t player_index = 0;
+volatile uint8_t bool_showing_sequence = 1;
+volatile uint8_t game_over = 0;
+
+void init_hardware(void);
+void show_level(uint8_t level);
+void generate_simon_sequence(void);
+void show_simon_sequence(void);
+void check_player_input(uint8_t button);
+void reset_game(void);
+void start_response_timer(void);
+void stop_response_timer(void);
+
+int main(void) {
+	init_hardware();
+	generate_simon_sequence();
+	show_simon_sequence();
+	
+	while (1) {
+		// Mostrar el nivel en el display de 7 segmentos
+		if (bool_showing_sequence) {
+			PORTC &= ~((1 << PC0) | (1 << PC2) | (1 << PC4) | (1 << PC6));
+			show_simon_sequence();  // Mostrar la secuencia nuevamente
+			bool_showing_sequence = 0;
+		}
+		show_level(level);
+
+		// Mostrar el estado de cada LED según el botón presionado
+		if (~PIND & (1 << PD0)) {
+			PORTC |= (1 << PC0);
+			} else {
+			PORTC &= ~(1 << PC0);
+		}
+		
+		if (~PIND & (1 << PD2)) {
+			PORTC |= (1 << PC2);
+			} else {
+			PORTC &= ~(1 << PC2);
+		}
+		
+		if (~PIND & (1 << PD4)) {
+			PORTC |= (1 << PC4);
+			} else {
+			PORTC &= ~(1 << PC4);
+		}
+		
+		if (~PIND & (1 << PD6)) {
+			PORTC |= (1 << PC6);
+			} else {
+			PORTC &= ~(1 << PC6);
+		}
+
+		// Reiniciar el juego si game_over
+		if (game_over) {
+			for (uint8_t i = 0; i < 5; i++) {
+				PORTC |= (1 << PC0) | (1 << PC2) | (1 << PC4) | (1 << PC6);
+				_delay_ms(200);
+				PORTC &= ~((1 << PC0) | (1 << PC2) | (1 << PC4) | (1 << PC6));
+				_delay_ms(200);
+			}
+			_delay_ms(200);
+			reset_game();
+		}
+	}
+}
+
+// Interrupción INT1 para leer los botones y comprobar la secuencia
+ISR(INT1_vect) {
+	if (!bool_showing_sequence) {
+		// Reiniciar el temporizador de respuesta
+		TCNT1 = 0;
+		_delay_ms(10);
+		// Leer el estado de los botones (inverso por pull-up)
+		button_state = (~PIND & ((1 << PD0) | (1 << PD2) | (1 << PD4) | (1 << PD6)));
+
+		// Verificar cuál botón fue presionado y comprobar la secuencia
+		if (button_state & (1 << PD0)) check_player_input(0);
+		else if (button_state & (1 << PD2)) check_player_input(1);
+		else if (button_state & (1 << PD4)) check_player_input(2);
+		else if (button_state & (1 << PD6)) check_player_input(3);
+	}
+}
+
+// Interrupción del temporizador cuando se supera el tiempo de respuesta
+ISR(TIMER1_COMPA_vect) {
+	game_over = 1;  // Indicar fin del juego si el tiempo de respuesta ha expirado
+}
+
+void init_hardware() {
+	// Configurar pines de LEDs como salida
+	DDRC |= (1 << PC0) | (1 << PC2) | (1 << PC4) | (1 << PC6);
+	
+	// Configurar pines de botones como entrada y activar resistencias pull-up
+	DDRD &= ~((1 << PD0) | (1 << PD2) | (1 << PD4) | (1 << PD6));
+	PORTD |= (1 << PD0) | (1 << PD2) | (1 << PD4) | (1 << PD6);
+	
+	// Configurar display de 7 segmentos en PORTB
+	DDRB = 0xFF;
+	DDRA |= (1 << PA0) | (1 << PA1);
+
+	// Configurar interrupción externa INT1 (flanco de bajada)
+	GICR |= (1 << INT1);
+	MCUCR |= (1 << ISC11);
+	
+	// Configurar Timer1 para temporizador de respuesta
+	TCCR1B |= (1 << WGM12) | (1 << CS12) | (1 << CS10);  // Modo CTC, preescalador 1024
+	OCR1A = (F_CPU / 1024) * (RESPONSE_TIMEOUT / 1000);  // Calcular valor de comparación para tiempo límite
+	TIMSK |= (1 << OCIE1A);  // Habilitar interrupción de comparación del temporizador
+	
+	// Habilitar interrupciones globales
+	sei();
+}
+
+void show_level(uint8_t level) {
+	uint8_t tens = level / 10;
+	uint8_t units = level % 10;
+
+	PORTA = 0b0010;
+	PORTB = bcd[tens];
+	_delay_ms(5);
+
+	// Multiplexado del display
+	PORTA = 0b0001;
+	PORTB = bcd[units];
+	_delay_ms(5);
+}
+
+void generate_simon_sequence(void) {
+	for (uint8_t i = 0; i < MAX_LEVEL; i++) {
+		simon_sequence[i] = rand() % 4;
+	}
+}
+
+void show_simon_sequence(void) {
+	stop_response_timer();  // Detener temporizador al mostrar la secuencia
+	_delay_ms(700);
+	for (uint8_t i = 0; i < level; i++) {
+		uint8_t led = simon_sequence[i];
+		switch(led){
+			case 0: PORTC = (1 << PC0); break;
+			case 1: PORTC = (1 << PC2); break;
+			case 2: PORTC = (1 << PC4); break;
+			case 3: PORTC = (1 << PC6); break;
+		}
+		_delay_ms(500);
+		PORTC = 0;
+		_delay_ms(500);
+	}
+	_delay_ms(700);
+	bool_showing_sequence = 0;
+	start_response_timer();  // Iniciar temporizador después de mostrar la secuencia
+}
+
+void check_player_input(uint8_t button) {
+	if (button == simon_sequence[player_index]) {
+		player_index++;
+		
+		if (player_index == level) {  // Completó la secuencia
+			level++;
+			if (level > MAX_LEVEL) level = MAX_LEVEL;
+
+			show_level(level);
+			player_index = 0;  // Reiniciar para la siguiente ronda
+			bool_showing_sequence = 1;
+		}
+		} 
+		else 
+		{	
+			game_over = 1;  // Error en la secuencia
+		}
+}
+
+void reset_game(void) {
+	level = 1;
+	player_index = 0;
+	bool_showing_sequence = 1;
+	button_state = 0;
+	game_over = 0;
+	generate_simon_sequence();
+	show_level(level);
+}
+
+void start_response_timer(void) {
+	TCNT1 = 0;  // Reiniciar contador del Timer1
+	TIMSK |= (1 << OCIE1A);  // Habilitar la interrupción del temporizador
+}
+
+void stop_response_timer(void) {
+	TIMSK &= ~(1 << OCIE1A);  // Deshabilitar la interrupción del temporizador
+}

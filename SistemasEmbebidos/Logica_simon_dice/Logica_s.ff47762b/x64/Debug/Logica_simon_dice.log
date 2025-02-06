@@ -1,0 +1,8 @@
+﻿  Logica_simon_dice.cpp
+C:\Users\mloay\source\repos\StudentPortfolioHub\SistemasEmbebidos\Logica_simon_dice\Logica_simon_dice.cpp(23,29): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\mloay\source\repos\StudentPortfolioHub\SistemasEmbebidos\Logica_simon_dice\Logica_simon_dice.cpp(34,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\mloay\source\repos\StudentPortfolioHub\SistemasEmbebidos\Logica_simon_dice\Logica_simon_dice.cpp(55,30): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\mloay\source\repos\StudentPortfolioHub\SistemasEmbebidos\Logica_simon_dice\Logica_simon_dice.cpp(61,22): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+  Logica_simon_dice.vcxproj -> C:\Users\mloay\source\repos\StudentPortfolioHub\SistemasEmbebidos\Logica_simon_dice\x64\Debug\Logica_simon_dice.exe
+  "pwsh.exe" no se reconoce como un comando interno o externo,
+  programa o archivo por lotes ejecutable.
